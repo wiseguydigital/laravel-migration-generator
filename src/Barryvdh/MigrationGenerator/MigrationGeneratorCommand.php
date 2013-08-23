@@ -71,6 +71,10 @@ class MigrationGeneratorCommand extends Command
 
         $schema = \DB::getDoctrineSchemaManager($table);
 
+        if ($this->option('enum-as-string') === 'true') {
+            $schema->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
+        }
+
         $indexes = $schema->listTableIndexes($table);
         foreach ($indexes as $index) {
             if($index->isUnique()){
@@ -138,7 +142,8 @@ class MigrationGeneratorCommand extends Command
     protected function getOptions()
     {
         return array(
-            array('path', null, InputOption::VALUE_OPTIONAL, 'The path to store the migration', 'app/database/migrations')
+            array('path', null, InputOption::VALUE_OPTIONAL, 'The path to store the migration', 'app/database/migrations'),
+            array('enum-as-string', null, InputOption::VALUE_OPTIONAL, 'Convert enums to strings', false)
         );
     }
 
