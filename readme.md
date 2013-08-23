@@ -2,6 +2,13 @@
 
 ### Generate migrations based on existing tables
 
+To use this fork of the Laravel4 Migration Generator override the Packagist location.
+
+    "repositories": [{
+        "type": "vcs",
+        "url": "http://github.com/wiseguydigital/laravel-migration-generator"
+    }],
+
 Require this package in your composer.json:
 
     "barryvdh/laravel-migration-generator": "dev-master"
