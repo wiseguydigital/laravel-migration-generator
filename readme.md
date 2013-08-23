@@ -2,7 +2,7 @@
 
 ### Generate migrations based on existing tables
 
-To use this fork of the Laravel4 Migration Generator override the Packagist location.
+To use this fork of the Laravel4 Migration Generator override the Packagist location in your composer.json:
 
     "repositories": [{
         "type": "vcs",
